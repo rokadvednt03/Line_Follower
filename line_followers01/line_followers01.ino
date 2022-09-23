@@ -13,9 +13,9 @@ int sen_4 = 13 ;
 
 int val1 ,val2,val3,val4;
 
-int base = 150 ;
-int l_base = 50;
-int r_base = 50;
+int base = 100 ;
+int l_base = 80;
+int r_base = 80;
 
 
 void setup() {
@@ -53,47 +53,52 @@ void loop() {
 
   if((val1 == 0) && (val2 == 0) && (val3==0) && (val4==0))
   {
-    analogWrite(mr1 , base );
+    analogWrite(mr1 , 150 );
     digitalWrite(mr2 , LOW);
-    analogWrite(ml1 , base );
+    analogWrite(ml1 , 150 );
     digitalWrite(ml2 , LOW);
   }
 
   else if((val1 == 0) && (val2 == 1) && (val3==0) && (val4==0))
-  {
-    analogWrite(mr1 , base );
+  { 
+    analogWrite(mr1 , 80 );
     digitalWrite(mr2 , LOW);
-    analogWrite(ml1 , base - l_base);
+    analogWrite(ml1 , 30 );
     digitalWrite(ml2 , LOW);
   }
 
   else if((val1 == 0) && (val2 == 0) && (val3==1) && (val4==0))
   {
-    analogWrite(mr1 , base - r_base);
+    analogWrite(mr1 , 30 );
     digitalWrite(mr2 , LOW);
-    analogWrite(ml1 , base);
+    analogWrite(ml1 , 80 );
     digitalWrite(ml2 , LOW);
   }
 
+/*  else if((val1==1) && (val2==1) && (val3 == 1) && (val4 == 0) )
+ *   {
+ *   while(!((val1==0) && (val2==0) && (val3 == 0) && (val4 == 0) ))
+ *   {
+    digitalWrite(mr2 , LOW );
+    analogWrite(mr1 , 80);
+    digitalWrite(ml1 , LOW );
+    digitalWrite(ml2 , LOW);
+ *   }
+ *   }
+ *   
+ */
   else if((val1 == 1) && (val2 == 0) && (val3==0) && (val4==0))
   {
-    analogWrite(mr1 , 150);
+    analogWrite(mr1 , 80 );
     digitalWrite(mr2 , LOW);
-    analogWrite(ml2 , 100 );
-    digitalWrite(ml1 , LOW);
-    
-
-//    analogWrite(mr1 , base + r_base);
-//    digitalWrite(mr2 , LOW);
-//    analogWrite(ml1 , 0 );
-//    digitalWrite(ml2 , LOW);
+    digitalWrite(ml1 , LOW );
+    analogWrite(ml2 , 80);
   }
 
   else if((val1 == 0) && (val2 == 0) && (val3==0) && (val4==1))
   {
-
-    analogWrite(mr2 , 100 );
-    digitalWrite(mr1 , LOW);
+    digitalWrite(mr1 , LOW );
+    analogWrite(mr2 , 80);
     analogWrite(ml1 , 80 );
     digitalWrite(ml2 , LOW);
   }
@@ -109,19 +114,21 @@ void loop() {
   else if((val1 == 1) && (val2 == 1) && (val3==0) && (val4==0))
   {
 
-    analogWrite(mr2 , 200 );
-    digitalWrite(mr1 , LOW);
-    analogWrite(ml1 , 200 );
+    digitalWrite(mr2 , LOW );
+    analogWrite(mr1 , 80);
+    digitalWrite(ml1 , LOW );
     digitalWrite(ml2 , LOW);
+    delay(3000);
   }
   else if((val1 == 0) && (val2 == 0) && (val3==1) && (val4==1))
   {
 
-    analogWrite(mr2 , 200 );
+    digitalWrite(mr2 , LOW );
     digitalWrite(mr1 , LOW);
-    analogWrite(ml1 , 200 );
+    analogWrite(ml1 , 80 );
     digitalWrite(ml2 , LOW);
   }
+  
   Serial.print("sen_1- ");
   Serial.print(val1);
   Serial.print("\t");
